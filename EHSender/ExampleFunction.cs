@@ -28,7 +28,7 @@ namespace EventHub_Trigger_Example
                     string messageBody = Encoding.UTF8.GetString(eventData.Body.Array, eventData.Body.Offset, eventData.Body.Count);
                     log.LogInformation($"C# Event Hub trigger function processed a message: {messageBody}");
 
-                    var packageType = eventData.Properties["packagetype"].ToString();
+                    var packageType = eventData.Properties["packagetype"].ToString(); // Used to distinguish each message and route them
 
                     switch (packageType)
                     {
