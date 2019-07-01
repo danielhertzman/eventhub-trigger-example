@@ -34,7 +34,7 @@ namespace EventHub_Trigger_Example
                     {
                         case "p1":
                         {
-                            var eventDataOut = new EventData(Encoding.UTF8.GetBytes(messageBody + " on p1 EH1"));
+                            var eventDataOut = new EventData(Encoding.UTF8.GetBytes(messageBody));
                             eventDataOut.Properties.Add("correlation-id", eventData.SystemProperties["correlation-id"].ToString());
                             await eh1.AddAsync(eventDataOut);
                             log.LogInformation("Sent to event hub 1");
@@ -43,7 +43,7 @@ namespace EventHub_Trigger_Example
 
                         case "p2":
                         {
-                            var eventDataOut = new EventData(Encoding.UTF8.GetBytes(messageBody + " on p2 EH2"));
+                            var eventDataOut = new EventData(Encoding.UTF8.GetBytes(messageBody));
                             eventDataOut.Properties.Add("correlation-id", eventData.SystemProperties["correlation-id"].ToString());
                             await eh2.AddAsync(eventDataOut);
                             log.LogInformation("Sent to event hub 2");
